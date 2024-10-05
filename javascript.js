@@ -64,13 +64,15 @@ buttons.addEventListener("click", (e) => {
   }
 
   if (a) screen.textContent = "";
-  if (screen.textContent.length > 5) return;
   if (e.target.textContent == "AC") {
     screen.textContent = "0";
     a = undefined;
     b = undefined;
     return;
   }
+
+  if (screen.textContent.length > 5) return;
+
   // console.log(e.target.textContent);
   screen.textContent += e.target.textContent;
 });
