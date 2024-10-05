@@ -61,6 +61,11 @@ buttons.addEventListener("click", (e) => {
     operator = undefined;
     return;
   }
+
+  if (operator && !a) {
+    operator = undefined;
+  }
+  
   if (screen.textContent === "0") {
     if (e.target.textContent === "0") return;
     screen.textContent = "";
