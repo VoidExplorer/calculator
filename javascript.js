@@ -30,12 +30,21 @@ function operate(a, b, operator) {
 const screen = document.querySelector(".screen");
 
 screen.textContent = "0";
-let operator, a, b;
+let operator, a, b, result;
 const buttons = document.querySelector(".buttons-container");
 
 buttons.addEventListener("click", (e) => {
   if (e.target.className === "operator") {
+    if(operator) {
+      console.log("hello");
+      b = Number(screen.textContent);
+      result = operate(result, b, operator);
+      screen.textContent = result;
+      operator = e.target.textContent;
+      return;
+    }
     a = Number(screen.textContent);
+    result =a;
     operator = e.target.textContent;
     return;
   }
@@ -43,7 +52,8 @@ buttons.addEventListener("click", (e) => {
   if (e.target.textContent === "=") {
     if (!a) return;
     b = Number(screen.textContent);
-    screen.textContent = operate(a, b, operator);
+    result = operate(result, b, operator);
+    screen.textContent = result;
     return;
   }
   if (screen.textContent === "0") {
