@@ -82,7 +82,7 @@ buttons.addEventListener("click", (e) => {
   
   if (screen.textContent === "0") {
     if (e.target.textContent === "0") return;
-    screen.textContent = "";
+    if (e.target.textContent !== ".") screen.textContent = "";
   }
 
   if (a) screen.textContent = "";
