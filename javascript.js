@@ -50,11 +50,12 @@ buttons.addEventListener("click", (e) => {
   }
 
   if (e.target.textContent === "=") {
-    if (!a) return;
+    if (!a || !operator) return;
     b = Number(screen.textContent);
     result = operate(result, b, operator);
     result = Math.round(result*1000)/1000
     screen.textContent = result;
+    operator = undefined;
     return;
   }
   if (screen.textContent === "0") {
