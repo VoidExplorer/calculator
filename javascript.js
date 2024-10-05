@@ -34,6 +34,9 @@ let operator, a, b, result;
 const buttons = document.querySelector(".buttons-container");
 
 buttons.addEventListener("click", (e) => {
+
+  if (!e.target.type) return;
+
   if (e.target.className === "operator") {
     if(operator) {
       console.log("hello");
