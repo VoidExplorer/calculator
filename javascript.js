@@ -44,7 +44,7 @@ buttons.addEventListener("click", (e) => {
       return;
     }
     a = Number(screen.textContent);
-    result =a;
+    result = Math.round(a*1000)/1000;
     operator = e.target.textContent;
     return;
   }
@@ -53,6 +53,7 @@ buttons.addEventListener("click", (e) => {
     if (!a) return;
     b = Number(screen.textContent);
     result = operate(result, b, operator);
+    result = Math.round(result*1000)/1000
     screen.textContent = result;
     return;
   }
