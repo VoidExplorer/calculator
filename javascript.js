@@ -37,11 +37,19 @@ buttons.addEventListener("click", (e) => {
 
   if (!e.target.type) return;
 
+  if(screen.textContent === "?ehe") screen.textContent = "0";
+
   if (e.target.className === "operator") {
     if(operator) {
       console.log("hello");
       b = Number(screen.textContent);
       result = operate(result, b, operator);
+      if(result === Infinity) {
+        screen.textContent = "?ehe";
+        a = undefined;
+        b = undefined;
+        return;
+      }
       screen.textContent = result;
       operator = e.target.textContent;
       return;
@@ -56,6 +64,12 @@ buttons.addEventListener("click", (e) => {
     if (!a || !operator) return;
     b = Number(screen.textContent);
     result = operate(result, b, operator);
+    if(result === Infinity) {
+      screen.textContent = "?ehe";
+      a = undefined;
+      b = undefined;
+      return;
+    }
     result = Math.round(result*1000)/1000
     screen.textContent = result;
     operator = undefined;
