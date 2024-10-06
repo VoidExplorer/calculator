@@ -33,14 +33,21 @@ screen.textContent = "0";
 let operator, a, b, result, clearDisplay;
 const buttons = document.querySelector(".buttons-container");
 
-buttons.addEventListener("click", (e) => {
+document.addEventListener("keydown", interact)
+buttons.addEventListener("click", interact)
 
-  if (!e.target.type) return;
-  if(e.target.textContent === "." && String(screen.textContent).includes(".")) return;
+let keys = "1234567890/*-+=."
+let operators = "+-*/"
+
+function interact(e) {
+
+  let key = e.type === "keydown" ? e.key : e.target.textContent;
+  if (!key || (!keys.includes(key) && e.keyCode !== 13)) return;
+  if(key === "." && String(screen.textContent).includes(".")) return;
 
   if(screen.textContent === "ehe?") screen.textContent = "0";
 
-  if (e.target.className === "operator") {
+  if (operators.includes(key)) {
     clearDisplay = true;
     if(operator) {
       console.log("hello");
@@ -53,16 +60,16 @@ buttons.addEventListener("click", (e) => {
         return;
       }
       screen.textContent = result;
-      operator = e.target.textContent;
+      operator = key;
       return;
     }
     a = Number(screen.textContent);
     result = Math.round(a*1000)/1000;
-    operator = e.target.textContent;
+    operator = key;
     return;
   }
 
-  if (e.target.textContent === "=") {
+  if (key === "=" || e.keyCode === 13) {
     if (!a || !operator) return;
     b = Number(screen.textContent);
     result = operate(result, b, operator);
@@ -84,8 +91,8 @@ buttons.addEventListener("click", (e) => {
   }
   
   if (screen.textContent === "0") {
-    if (e.target.textContent === "0") return;
-    if (e.target.textContent !== ".") screen.textContent = "";
+    if (key === "0") return;
+    if (key !== ".") screen.textContent = "";
   }
 
   if (clearDisplay) {
@@ -93,7 +100,7 @@ buttons.addEventListener("click", (e) => {
     clearDisplay = false;
   }
 
-  if (e.target.textContent == "AC") {
+  if (key == "AC") {
     screen.textContent = "0";
     a = undefined;
     b = undefined;
@@ -104,5 +111,5 @@ buttons.addEventListener("click", (e) => {
   if (screen.textContent.length > 5) return;
 
   // console.log(e.target.textContent);
-  screen.textContent += e.target.textContent;
-});
+  screen.textContent += key;
+};
