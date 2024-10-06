@@ -110,6 +110,7 @@ function interact(e) {
 
   if(key === "⌫" || e.keyCode === 8) {
     screen.textContent = String(screen.textContent).slice(0,-1);
+    if (screen.textContent === "") screen.textContent = "0";
     return;
   }
 
