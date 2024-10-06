@@ -36,6 +36,7 @@ const buttons = document.querySelector(".buttons-container");
 buttons.addEventListener("click", (e) => {
 
   if (!e.target.type) return;
+  if(e.target.textContent === "." && String(screen.textContent).includes(".")) return;
 
   if(screen.textContent === "ehe?") screen.textContent = "0";
 
