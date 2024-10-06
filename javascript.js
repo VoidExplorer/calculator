@@ -36,13 +36,13 @@ const buttons = document.querySelector(".buttons-container");
 document.addEventListener("keydown", interact)
 buttons.addEventListener("click", interact)
 
-let keys = "1234567890/*-+=."
+let keys = "1234567890/*-+=.⌫"
 let operators = "+-*/"
 
 function interact(e) {
 
   let key = e.type === "keydown" ? e.key : e.target.textContent;
-  if (!key || (!keys.includes(key) && e.keyCode !== 13)) return;
+  if (!key || (!keys.includes(key) && e.keyCode !== 13 && e.keyCode !== 8)) return;
   if(key === "." && String(screen.textContent).includes(".")) return;
 
   if(screen.textContent === "ehe?") screen.textContent = "0";
@@ -105,6 +105,11 @@ function interact(e) {
     a = undefined;
     b = undefined;
     clearDisplay = false;
+    return;
+  }
+
+  if(key === "⌫" || e.keyCode === 8) {
+    screen.textContent = String(screen.textContent).slice(0,-1);
     return;
   }
 
