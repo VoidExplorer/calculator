@@ -15,7 +15,7 @@
     background-color: #415A77;
     margin: 10px;
     font-size: 80px;
-    direction: rtl;
+    text-align: end;
 }
 
 .buttons-container {

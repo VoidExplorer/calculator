@@ -37,7 +37,7 @@ buttons.addEventListener("click", (e) => {
 
   if (!e.target.type) return;
 
-  if(screen.textContent === "?ehe") screen.textContent = "0";
+  if(screen.textContent === "ehe?") screen.textContent = "0";
 
   if (e.target.className === "operator") {
     clearDisplay = true;
@@ -46,7 +46,7 @@ buttons.addEventListener("click", (e) => {
       b = Number(screen.textContent);
       result = operate(result, b, operator);
       if(result === Infinity) {
-        screen.textContent = "?ehe";
+        screen.textContent = "ehe?";
         a = undefined;
         b = undefined;
         return;
@@ -66,7 +66,7 @@ buttons.addEventListener("click", (e) => {
     b = Number(screen.textContent);
     result = operate(result, b, operator);
     if(result === Infinity) {
-      screen.textContent = "?ehe";
+      screen.textContent = "ehe?";
       a = undefined;
       b = undefined;
       return;
