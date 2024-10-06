@@ -36,7 +36,7 @@ const buttons = document.querySelector(".buttons-container");
 document.addEventListener("keydown", interact)
 buttons.addEventListener("click", interact)
 
-let keys = "1234567890/*-+=.⌫"
+let keys = "1234567890/*-+=.⌫AC"
 let operators = "+-*/"
 
 function interact(e) {
