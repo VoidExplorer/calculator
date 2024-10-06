@@ -74,6 +74,7 @@ buttons.addEventListener("click", (e) => {
     result = Math.round(result*1000)/1000
     screen.textContent = result;
     operator = undefined;
+    clearDisplay = true;
     return;
   }
 
