@@ -1,3 +1,22 @@
+html, body {
+    height: 100%;
+}
+
+html,
+body,
+div,
+h4,
+a {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .container {
     display: flex;
     margin: auto;
@@ -34,4 +53,21 @@ button {
     margin: 3px;
     flex: 1 0 60px;
     color: white;
+}
+
+a,
+a:visited {
+    color: gray;
+    text-decoration: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1B263B;
+    color: white;
+    font-size: 20px;
+    padding: 10px 0 10px 0;
+    width: 100%;
 }
