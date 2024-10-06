@@ -30,7 +30,7 @@ function operate(a, b, operator) {
 const screen = document.querySelector(".screen");
 
 screen.textContent = "0";
-let operator, a, b, result;
+let operator, a, b, result, clearDisplay;
 const buttons = document.querySelector(".buttons-container");
 
 buttons.addEventListener("click", (e) => {
@@ -40,6 +40,7 @@ buttons.addEventListener("click", (e) => {
   if(screen.textContent === "?ehe") screen.textContent = "0";
 
   if (e.target.className === "operator") {
+    clearDisplay = true;
     if(operator) {
       console.log("hello");
       b = Number(screen.textContent);
@@ -85,11 +86,16 @@ buttons.addEventListener("click", (e) => {
     if (e.target.textContent !== ".") screen.textContent = "";
   }
 
-  if (a) screen.textContent = "";
+  if (clearDisplay) {
+    screen.textContent = "";
+    clearDisplay = false;
+  }
+
   if (e.target.textContent == "AC") {
     screen.textContent = "0";
     a = undefined;
     b = undefined;
+    clearDisplay = false;
     return;
   }
 
